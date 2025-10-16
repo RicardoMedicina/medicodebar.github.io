@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Generador de Código de Barra</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Librería JsBarcode -->
+  <script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.5/dist/JsBarcode.all.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+  <h1>Generador de Código de Barra</h1>
+
+  <label for="codigo">Código (letras y números):</label>
+  <input type="text" id="codigo" placeholder="Ej: ABC123">
+
+  <label for="ubicacion">Ubicación:</label>
+  <input type="text" id="ubicacion" placeholder="Ej: Pasillo 3, Estante B">
+
+  <button id="generar">Generar Código de Barra</button>
+  <button id="imprimir">Imprimir</button>
+
+  <div id="resultado">
+    <svg id="barcode"></svg>
+    <p id="ubicacionDisplay"></p>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
