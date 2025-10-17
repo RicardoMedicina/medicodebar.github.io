@@ -12,10 +12,10 @@ document.getElementById('generar').addEventListener('click', () => {
     JsBarcode("#barcode", codigo, {
         format: "CODE128",
         lineColor: "#000000",
-        width: 1.2,
-        height: 38,
+        width: 1.8,
+        height: 40,
         displayValue: true,
-        fontSize: 8,
+        fontSize: 16,
         margin: 0,
         textMargin: 0,
         valid: function (val) {
