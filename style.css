@@ -62,8 +62,8 @@ button:hover {
   }
 
   #resultado {
-    width: 33mm;
-    height: 5mm;
+    width: 55mm;
+    height: 33mm;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -76,7 +76,7 @@ button:hover {
   }
 
   #ubicacionDisplay {
-    font-size: 5pt;
+    font-size: 3pt;
     margin: 0;
   }
 }
