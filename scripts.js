@@ -1,6 +1,6 @@
 // Generador de Código de Barra CODE128 optimizado para TSC T200
 document.getElementById('generar').addEventListener('click', () => {
-    const codigo = document.getElementById('codigo').value.trim();
+    let codigo = document.getElementById('codigo').value.trim();
     const ubicacion = document.getElementById('ubicacion').value.trim();
 
     if (!codigo) {
@@ -8,13 +8,16 @@ document.getElementById('generar').addEventListener('click', () => {
         return;
     }
 
+    // ⚙️ Mantener el carácter "/" sin reemplazarlo
+    const codigoSeguro = String.raw`${codigo}`;
+
     // Generar el código de barras en formato CODE128
-    JsBarcode("#barcode", codigo, {
-        format: "CODE128",  // formato CODE128 solicitado
+    JsBarcode("#barcode", codigoSeguro, {
+        format: "CODE128",
         lineColor: "#000000",
-        width: 1.2,         // fino y legible
-        height: 38,         // ajustado a etiqueta 5x33 mm
-        displayValue: true, // muestra el número abajo
+        width: 1.2,
+        height: 38,
+        displayValue: true,
         fontSize: 8,
         margin: 0,
         textMargin: 0
@@ -52,10 +55,9 @@ document.getElementById('imprimir').addEventListener('click', () => {
     ventana.document.write('</body></html>');
     ventana.document.close();
 
-    // Imprimir automáticamente sin mostrar hora ni fecha
     ventana.onload = () => {
         ventana.focus();
         ventana.print();
         ventana.close();
-    };
+    };
 });
