@@ -52,6 +52,7 @@ button:hover {
 #ubicacionDisplay {
   margin-top: 5px;
   font-weight: bold;
+  font-size: 20px;
 }
 
 /* --- Ajuste de impresión --- */
