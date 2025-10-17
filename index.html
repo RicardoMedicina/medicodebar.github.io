@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Generador de Código de Barra</title>
+  <title>Generador de Código de Barra CODE128</title>
   <link rel="stylesheet" href="style.css">
   <!-- Librería JsBarcode -->
   <script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.5/dist/JsBarcode.all.min.js"></script>
@@ -10,15 +10,15 @@
 <body>
 
 <div class="container">
-  <h1>CodeBar - Medi v1.0</h1>
+  <h1>MEDI - CodeBar V1.0</h1>
 
-  <label for="codigo">Código (letras, números y símbolos):</label>
-  <input type="text" id="codigo" placeholder="Ej: ABC/123-XY">
+  <label for="codigo">Código (acepta letras, números y "/"):</label>
+  <input type="text" id="codigo" placeholder="Ej: ABC/123">
 
   <label for="ubicacion">Ubicación:</label>
   <input type="text" id="ubicacion" placeholder="Ej: Pasillo 3, Estante B">
 
-  <button id="generar">Generar Código de Barra</button>
+  <button id="generar">Generar Código</button>
   <button id="imprimir">Imprimir</button>
 
   <div id="resultado">
