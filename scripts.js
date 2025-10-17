@@ -1,6 +1,6 @@
-// Generador de Código de Barra CODE39 optimizado para TSC T200
+// Generador de Código de Barra CODE128 optimizado para TSC T200
 document.getElementById('generar').addEventListener('click', () => {
-    let codigo = document.getElementById('codigo').value.trim();
+    const codigo = document.getElementById('codigo').value.trim();
     const ubicacion = document.getElementById('ubicacion').value.trim();
 
     if (!codigo) {
@@ -8,14 +8,14 @@ document.getElementById('generar').addEventListener('click', () => {
         return;
     }
 
-    // CODE39 no admite minúsculas → convertimos todo a mayúsculas
-    codigo = codigo.toUpperCase();
+    // CODE128 soporta todos los caracteres ASCII (incluido "/"), así que no se toca
+    const codigoSeguro = codigo;
 
-    // Generar el código de barras en formato CODE39
-    JsBarcode("#barcode", codigo, {
-        format: "CODE39",
+    // Generar el código de barras en formato CODE128
+    JsBarcode("#barcode", codigoSeguro, {
+        format: "CODE128",
         lineColor: "#000000",
-        width: 1.0,         // líneas más finas
+        width: 1.1,         // líneas finas
         height: 38,
         displayValue: true, // muestra el número abajo
         fontSize: 9,
@@ -31,7 +31,7 @@ document.getElementById('imprimir').addEventListener('click', () => {
     const contenido = document.getElementById('resultado').innerHTML;
     const ventana = window.open('', '', 'width=300,height=150');
 
-    ventana.document.write('<html><head><title>Etiqueta CODE39</title>');
+    ventana.document.write('<html><head><title>Etiqueta CODE128</title>');
     ventana.document.write('<style>');
     ventana.document.write(`
         @page { margin: 0; }
