@@ -1,4 +1,4 @@
-// Generador de Código de Barra CODE128 optimizado para TSC T200
+// Generador CODE128
 document.getElementById('generar').addEventListener('click', () => {
     const codigo = document.getElementById('codigo').value.trim();
     const ubicacion = document.getElementById('ubicacion').value.trim();
@@ -8,19 +8,19 @@ document.getElementById('generar').addEventListener('click', () => {
         return;
     }
 
-    // CODE128 soporta todos los caracteres ASCII (incluido "/"), así que no se toca
-    const codigoSeguro = codigo;
-
-    // Generar el código de barras en formato CODE128
-    JsBarcode("#barcode", codigoSeguro, {
+    // Generar el código de barras CODE128
+    JsBarcode("#barcode", codigo, {
         format: "CODE128",
         lineColor: "#000000",
-        width: 1.1,         // líneas finas
+        width: 1.2,
         height: 38,
-        displayValue: true, // muestra el número abajo
-        fontSize: 9,
+        displayValue: true,
+        fontSize: 8,
         margin: 0,
-        textMargin: 0
+        textMargin: 0,
+        valid: function (val) {
+            return true; // permite todos los caracteres (incluido "/")
+        }
     });
 
     document.getElementById('ubicacionDisplay').textContent = ubicacion;
@@ -35,20 +35,9 @@ document.getElementById('imprimir').addEventListener('click', () => {
     ventana.document.write('<style>');
     ventana.document.write(`
         @page { margin: 0; }
-        body { 
-            margin: 0; 
-            padding: 0; 
-            text-align: center;
-        }
-        svg { 
-            display: block; 
-            margin: 0 auto;
-        }
-        #ubicacionDisplay {
-            font-size: 6pt;
-            font-weight: bold;
-            margin: 0;
-        }
+        body { margin: 0; padding: 0; text-align: center; }
+        svg { display: block; margin: 0 auto; }
+        #ubicacionDisplay { font-size: 6pt; font-weight: bold; margin: 0; }
     `);
     ventana.document.write('</style></head><body>');
     ventana.document.write(contenido);
